@@ -1,0 +1,58 @@
+name: adclient
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get: 4.6.5
+  flutter: 
+    sdk: flutter
+  velocity_x: ^3.3.0
+  flutter_svg: ^2.0.7
+  ionicons: any
+  flutter_map: any
+  flutter_map_marker_cluster: any
+  latlong2: ^0.8.2
+  flutter_rating_stars: ^1.0.3+4
+  shimmer: ^3.0.0
+
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
+  assets:
+    - assets/svg/actHeart.svg
+    - assets/svg/actHome.svg
+    - assets/svg/actLocation.svg
+    - assets/svg/actNotification.svg
+    - assets/svg/actWallet.svg
+    - assets/svg/Heart.svg
+    - assets/svg/Home.svg
+    - assets/svg/Location.svg
+    - assets/svg/Notification.svg
+    - assets/svg/Wallet.svg
+    - assets/svg/Send.svg
+    - assets/images/background.jpeg
+    - assets/images/homeBackground.png
+    - assets/images/homeBackground1.svg
+    - assets/images/logo.png
+    - assets/images/logo.svg
+    - assets/images/logolong.svg
+    - assets/images/onboarding1.svg
+    - assets/images/onboarding2.svg
+    - assets/images/onboarding3.svg
+    - assets/images/Rectangle407.png
+    - assets/images/Rectangle497.png
+    - assets/images/Rectangle497(1).png
+    - assets/images/Rectangle497(2).png
+    - assets/images/Rectangle500.png
+    - assets/images/EightOclock.png
+    - assets/images/SpiralCalendar.png
+
