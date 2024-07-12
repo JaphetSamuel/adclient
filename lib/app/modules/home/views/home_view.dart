@@ -1,9 +1,13 @@
+import 'package:adclient/app/modules/ReservationWizard/controllers/reservation_wizard_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../../composants/emptyReservationCard.dart';
+import '../../ReservationWizard/composants/WizardChoiceLocation.dart';
+import '../../ReservationWizard/composants/WizardModalChoiceDate.dart';
+import '../../ReservationWizard/composants/WizardPickDate.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -77,7 +81,23 @@ class HomeView extends GetView<HomeController> {
       ),
     );
   }
+  Widget builds() {
+    return Material(
+      child: PageView(
+        controller: controller.pageController,
+        children: [
+          WizardModalChoiceDate(onChanged: (i){
+            controller.onMomentChanged(i);
+          },),
+          WizardChoiceLocation(onChanged: (i){
+            controller.onLocationChanged(i);
+          }),
+          WizardPickDate(),
 
+        ],
+      ),
+    );
+  }
   Widget ReservationStreamBuilder({int userReservation = 1}) {
     // ReservationProvider reservationProvider = Get.find();
 
@@ -99,7 +119,10 @@ class HomeView extends GetView<HomeController> {
         }
         if (!snapshot.hasError) {
           return EmptyReservationCard(onClick: () {
-            Get.toNamed('/reservation-wizard');
+            onClick: () {
+              // Get.toNamed('/reservation-wizard');
+              builds(); // J'ai remplacé "builds()"  par la fonction que vous souhaitez appeler ici.
+            };
           }).p(8);
         }
         if (!snapshot.hasData) {

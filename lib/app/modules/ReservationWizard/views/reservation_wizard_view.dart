@@ -13,7 +13,6 @@ class ReservationWizardView extends GetView<ReservationWizardController> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
       child: PageView(
         controller: controller.pageController,
         children: [

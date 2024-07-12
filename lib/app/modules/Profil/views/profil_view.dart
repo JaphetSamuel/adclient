@@ -16,18 +16,56 @@ class ProfilView extends GetView<ProfilController> {
       ),
       body: Column(
         children: [
-          ListTile(
-            leading: Icon(
-              Icons.account_circle_sharp,
-              size: 40,
-              color: Colors.grey,
+          InkWell(
+            child: ListTile(
+              leading: Icon(
+                Icons.account_circle_sharp,
+                size: 40,
+                color: Colors.grey,
+              ),
+              title: Text("Nom de l'utilisateur"),
+              subtitle: [
+                const Icon(Icons.phone, color: Colors.blue, size: 25,),
+                SizedBox(width: 10,),
+                Text("+225 23 24 15 48 22")
+              ].hStack(),
+            ).px(40),
+
+          ),
+          SizedBox(height: 10,),
+          Container(
+            width: MediaQuery.of(context).size.width*0.95,
+            //padding: EdgeInsets.all(10),
+            height: 80,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.blue[100]
             ),
-            title: Text("Nom de l'utilisateur"),
-            subtitle: [
-              const Icon(Icons.phone),
-              Text("+225 23 24 15 48 22")
-            ].hStack(),
-          ).px(40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Icon(Icons.attach_money_rounded, color: Colors.white,),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.blue[500]
+                  ),
+                  width: 40,
+                  height: 40,
+                ),
+                SizedBox(width: 20,),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Gagner de l\'argent en fessant de la location"),
+                    SizedBox(height: 5,),
+                    Text("Telecharger la nouvelle version", style: TextStyle(fontWeight: FontWeight.bold),),
+                  ],
+                )
+              ],
+            ),
+          ),
           SizedBox(height: 20,),
           const SizedBox(height: 20,),
           const ListTile(
