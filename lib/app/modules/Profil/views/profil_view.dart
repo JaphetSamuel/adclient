@@ -10,59 +10,97 @@ class ProfilView extends GetView<ProfilController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profil'),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          ListTile(
-            leading: Icon(
-              Icons.account_circle_sharp,
-              size: 40,
-              color: Colors.grey,
+        appBar: AppBar(
+          title: const Text('Profil'),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: [
+            InkWell(
+              child: ListTile(
+                leading: Icon(
+                  Icons.account_circle_sharp,
+                  size: 40,
+                  color: Colors.grey,
+                ),
+                title: Text("Nom de l'utilisateur"),
+                subtitle: [
+                  const Icon(Icons.phone, color: Colors.blue, size: 25,),
+                  SizedBox(width: 10,),
+                  Text("+225 23 24 15 48 22")
+                ].hStack(),
+              ).px(40),
+              onTap:()=>  Get.toNamed('/user-profile'),
             ),
-            title: Text("Nom de l'utilisateur"),
-            subtitle: [
-              const Icon(Icons.phone),
-              Text("+225 23 24 15 48 22")
-            ].hStack(),
-          ).px(40),
-          SizedBox(height: 20,),
-          const SizedBox(height: 20,),
-          const ListTile(
-            title: Text("Donnez-nous votre avis"),
-            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent,),
-          ),
-          const ListTile(
-            title: Text("Aides et service clientèle"),
-            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent,),
-          ),
-          const ListTile(
-            title: Text("Condition générales"),
-            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent,),
-          ),
-          const ListTile(
-            title: Text("Paramètre de sécurité"),
-            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent,),
-          ),
-          const ListTile(
-            title: Text("Supprimer mon compte"),
-            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent,),
-          ),
-          Expanded(
-            flex: 1,
-              child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextButton(onPressed: (){
-                Get.toNamed('/auth');
-              }, child:const Text("Déconnexion")),
-              trademark()
-            ],
-          ))
-        ],
-      )
+            SizedBox(height: 10,),
+            Container(
+              width: MediaQuery.of(context).size.width*0.95,
+              //padding: EdgeInsets.all(10),
+              height: 80,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.blue[100]
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    child: Icon(Icons.attach_money_rounded, color: Colors.white,),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.blue[500]
+                    ),
+                    width: 40,
+                    height: 40,
+                  ),
+                  SizedBox(width: 20,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Gagner de l\'argent en fessant de la location"),
+                      SizedBox(height: 5,),
+                      Text("Telecharger la nouvelle version", style: TextStyle(fontWeight: FontWeight.bold),),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
+            const ListTile(
+              title: Text("Donnez-nous votre avis"),
+              trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent,),
+            ),
+            const ListTile(
+              title: Text("Aides et service clientèle"),
+              trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent,),
+            ),
+            const ListTile(
+              title: Text("Condition générales"),
+              trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent,),
+            ),
+            const ListTile(
+              title: Text("Paramètre de sécurité"),
+              trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent,),
+            ),
+            const ListTile(
+              title: Text("Supprimer mon compte"),
+              trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent,),
+            ),
+            Expanded(
+                flex: 1,
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    TextButton(onPressed: (){
+                      Get.toNamed('/auth');
+                    }, child:const Text("Déconnexion")),
+                    trademark()
+                  ],
+                ))
+          ],
+        )
     );
   }
   Widget trademark(){

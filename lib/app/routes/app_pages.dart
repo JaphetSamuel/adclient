@@ -27,7 +27,11 @@ import '../modules/home/views/home_view.dart';
 import '../modules/root/bindings/root_binding.dart';
 import '../modules/root/views/root_view.dart';
 import '../modules/userProfile/bindings/user_profile_binding.dart';
+import '../modules/userProfile/bindings/user_profile_binding.dart';
 import '../modules/userProfile/views/user_profile_view.dart';
+import '../modules/userProfile/views/user_profile_view.dart';
+import '../modules/widget/bindings/widget_binding.dart';
+import '../modules/widget/views/widget_view.dart';
 
 part 'app_routes.dart';
 
@@ -105,8 +109,20 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.USER_PROFILE,
-      page: () => const UserProfileView(),
+      page: () => UserProfileView(),
       binding: UserProfileBinding(),
+      children: [
+        GetPage(
+          name: _Paths.USER_PROFILE,
+          page: () => UserProfileView(),
+          binding: UserProfileBinding(),
+        ),
+      ],
+    ),
+    GetPage(
+      name: _Paths.WIDGET,
+      page: () => const WidgetView(),
+      binding: WidgetBinding(),
     ),
   ];
 }

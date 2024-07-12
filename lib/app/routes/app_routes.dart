@@ -18,6 +18,7 @@ abstract class Routes {
   static const RESERVATION_WIZARD = _Paths.RESERVATION_WIZARD;
   static const EXPLORER = _Paths.EXPLORER;
   static const USER_PROFILE = _Paths.USER_PROFILE;
+  static const WIDGET = _Paths.WIDGET;
 }
 
 abstract class _Paths {
@@ -37,4 +38,5 @@ abstract class _Paths {
   static const RESERVATION_WIZARD = '/reservation-wizard';
   static const EXPLORER = '/explorer';
   static const USER_PROFILE = '/user-profile';
+  static const WIDGET = '/widget';
 }
